@@ -3,11 +3,36 @@
 
 <footer class='bg-black text-white p-6'>
   <h2 class='hidden'>Footer</h2>
-  <p class='outfit'>
-    Brutal theme for Astro - by <a
-      href='https://www.elian.codes/'
-      target='_blank'
-      class='text-blue'>ElianCodes</a
-    >
-  </p>
+<p class="math-display">{"\\[ e^{i\\pi} + 1 = 0 \\]"}</p>
 </footer>
+
+<script>
+  // Declara el tipo para satisfacer TypeScript.
+  declare global {
+    interface Window {
+      MathJax?: {
+        typesetPromise?: () => Promise<void>;
+      };
+    }
+  }
+
+  // Función de carga de MathJax
+  function loadMathJax() {
+    if (window.MathJax?.typesetPromise) {
+      window.MathJax.typesetPromise();
+    } else {
+      const script = document.createElement('script');
+      script.src = 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-svg.js';
+      script.async = true;
+      script.onload = () => {
+        if (window.MathJax?.typesetPromise) {
+          window.MathJax.typesetPromise();
+        }
+      };
+      document.body.appendChild(script);
+    }
+  }
+
+  // Cargar MathJax cuando el componente se monta
+  loadMathJax();
+</script>
