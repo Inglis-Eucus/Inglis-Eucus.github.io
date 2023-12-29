@@ -56,15 +56,17 @@
   font-family: 'Sanchez', serif;
 }
 .card-shadow {
-  filter: drop-shadow(7px 7px 0 rgb(0 0 0 / 1));
+  filter: drop-shadow(7px 7px 0 rgb(58, 32, 66));
   transition: all;
   transition-duration: 0.5s;
   animation: ease-in-out;
 }
 .card-shadow:hover {
-  filter: drop-shadow(5px 5px 0 rgb(0 0 0 / 1));
+  filter: drop-shadow(5px 5px 0 rgb(0, 0, 0));
 }
-
+.bg-color-personalizado {
+  background-color: #190725
+}
 :root 
 {  /* ---- ⚫️ Colors ⚪️ ---- */
   /* Base Tokens */
@@ -170,5 +172,5 @@ html {
 
 ::selection
 {
-  background-color: aliceblue;
+  background-color: hwb(208 94% 0%);
 }
