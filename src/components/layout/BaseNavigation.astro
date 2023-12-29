@@ -3,21 +3,25 @@ interface Props {
   pageTitle?: string;
 }
 
-const navigationItems = [
-  { name: 'Home', url: '/' },
-  { name: 'Blog', url: '/blog/' },
-];
+// const navigationItems = [
+//   { name: 'Blog', url: '/blog/', icon: 'i-uil-github' },
+// ];
 
 const socialIcons = [
-  {
+{
+    name: 'Blog',
+    url: '/blog',
+    icon: 'i-uil-book-open',
+  }, 
+{
     name: 'GitHub',
-    url: 'https://github.com/eliancodes/brutal',
+    url: 'https://github.com/Inglis-Eucus/Inglis-Eucus.github.io',
     icon: 'i-uil-github',
   },
   {
-    name: 'Twitter',
-    url: 'https://www.twitter.com/eliancodes',
-    icon: 'i-uil-twitter',
+    name: 'Instagram',
+    url: 'https://www.instagram.com/mago_astra/',
+    icon: 'i-uil-instagram',
   },
   { name: 'RSS', url: '/feed.xml', icon: 'i-uil-rss' },
 ];
@@ -27,13 +31,13 @@ const { pageTitle } = Astro.props;
 
 <header class='border-b-4 border-black flex justify-between p-6 items-center'>
   {pageTitle && <h1 class='hidden'>{pageTitle}</h1>}
-  <a href='/' title='Back to Home'>
-    <p class='righteous md:text-5xl'>Brutal</p>
+  <a href='/' title='Inicio'>
+    <p class='righteous md:text-5xl'>No sé como ponerle</p>
   </a>
   <nav class='hidden md:inline-block'>
     <h2 class='hidden'>Navigation</h2>
     <ul class='flex gap-8 poppins'>
-      {
+      <!-- {
         navigationItems.map((item) => (
           <li>
             <a
@@ -45,7 +49,7 @@ const { pageTitle } = Astro.props;
             </a>
           </li>
         ))
-      }
+      } -->
       {
         socialIcons.map((item) => (
           <li>
@@ -53,7 +57,7 @@ const { pageTitle } = Astro.props;
               href={item.url}
               class='hover:text-green hover:underline transition-all duration-150 ease-in-out'
               target='_blank'
-              title={`'See @ElianCodes on ${item.name}`}
+              title={`${item.name}`}
             >
               <div class:list={[item.icon, 'w-6 h-6']} />
             </a>
@@ -62,10 +66,10 @@ const { pageTitle } = Astro.props;
       }
     </ul>
   </nav>
-  <nav class='md:hidden flex'>
+  <!-- <nav class='md:hidden flex'>
     <h2 class='hidden'>Mobile Navigation</h2>
     <ul>
       <li><a href='/blog/'>Blog</a></li>
     </ul>
-  </nav>
+  </nav> -->
 </header>
